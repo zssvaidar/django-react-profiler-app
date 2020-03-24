@@ -29,6 +29,7 @@ eb-virt
 .vscode
 local.py
 base.py
+env
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
