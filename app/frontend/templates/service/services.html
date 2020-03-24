@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+  {% for service in services %}
+  <div style="position:absolute;">
+
+  {{ service.url }}
+  {{ service.description }}
+        {{ service.price }}
+  </div>
+  {% endfor %}
+
+{% endblock %}
