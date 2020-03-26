@@ -33,13 +33,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     (5, 'admin')
     )
     user_type =     models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES)
-    email =         models.CharField(max_length = 32, unique=True, null=False, blank=True)
+    login =         models.CharField(max_length = 32, unique=True, null=False, blank=True)
     username =      models.CharField(max_length = 32, null=False, blank=True)
     phonenumber =   models.CharField(max_length = 32, null=False, blank=True)
     country =       models.CharField(max_length = 32, null=False, blank=True)
     city =          models.CharField(max_length = 32, null=False, blank=True)
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'phonenumber', 'country', 'city']
+    USERNAME_FIELD = 'login'
+    REQUIRED_FIELDS = ['phonenumber', 'country', 'city']
     objects = UserManager()
 
     def is_staff(self):

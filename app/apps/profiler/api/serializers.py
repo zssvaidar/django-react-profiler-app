@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer, SerializerMethodField
 from rest_framework.relations import HyperlinkedIdentityField
-from ..models import service
+from ..models import service, User
 
 # class ProfileSerializer(ModelSerializer):
 
@@ -13,19 +13,12 @@ class ServiceSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = service
         fields = ['url', 'id',  'description', 'price']
-#
-#
-# class ProfileSerializer(HyperlinkedModelSerializer):
-#
-#     url = HyperlinkedIdentityField(
-#         view_name='profiler-gc:profiler',
-#         lookup_field='pk'
-#     )
-#     ids = SerializerMethodField()
-#
-#     class Meta:
-#         model = profile
-#         fields = ['url','id', 'ids', 'name', 'surname', 'phone_number', 'mail', 'address']
-#
-#     def get_ids(self, obj):
-#         return obj.id
+
+class UserSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'login', 'phonenumber', 'country', 'city')
+    def create(self, validated_data):
+        user = User.objects.create_user(validated_data['login'], validated_data['phonenumber'],
+        validated_data['country'], validated_data['city'], validated_data['password'])
+        return user
