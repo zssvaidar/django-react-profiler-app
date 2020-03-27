@@ -10,7 +10,6 @@ class UserSerializer(ModelSerializer):
         fields = ('id', 'login', 'phonenumber', 'country', 'city')
 
 class RegisterSerializer(ModelSerializer):
-    # user_type = serializers.IntegerField(required=True)
     class Meta:
         model = User
         fields = ('id', 'login', 'password', 'phonenumber', 'country', 'city', 'user_type')
@@ -22,13 +21,14 @@ class RegisterSerializer(ModelSerializer):
         validated_data['phonenumber'], validated_data['country'], validated_data['city'],
         validated_data['user_type'])
         return user
-        
+
 class LoginSerializer(Serializer):
     login = serializers.CharField()
     password = serializers.CharField()
 
     def validate(self, data):
         user= authenticate(**data)
+        print(user)
         if(user and user.is_active):
             return user
         raise serializers.ValidationError("validn error")
