@@ -4,6 +4,8 @@ from django.urls import path, include
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',include(('apps.accounts.urls', 'accounts'), namespace='accounts')),
+    path('',include(('apps.accounts.api.urls', 'accounts_api'), namespace='accounts_api')),
     path('',include(('apps.profiler.urls', 'profiler'), namespace='profiler')),
     path('',include(('apps.profiler.api.urls', 'profiler_service'), namespace='profiler_service')),
 ]

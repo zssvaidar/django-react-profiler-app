@@ -7,6 +7,7 @@ from django.http import Http404
 from rest_framework.response import Response
 import datetime
 
+
 class ServiceListView(ListAPIView):
     queryset = service.objects.all()
     serializer_class = ServiceSerializer
