@@ -26,11 +26,10 @@ class UserManager(BaseUserManager):
 '''
 class User(AbstractBaseUser, PermissionsMixin):
     USER_TYPE_CHOICES = (
-    (1, 'provider'),
-    (2, 'reciever'),
-    (3, 'stuff'),
-    (4, 'supervisor'),
-    (5, 'admin')
+    (1, 'customer'),
+    (2, 'stuff'),
+    (3, 'supervisor'),
+    (4, 'admin')
     )
     user_type =     models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES)
     login =         models.CharField(max_length = 32, unique=True, null=False, blank=True)

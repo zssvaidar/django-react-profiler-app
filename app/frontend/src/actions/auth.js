@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { AUTH_ERROR, USER_LOADING, USER_LOADED, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS } from "./types";
+import { AUTH_ERROR, USER_LOADING, USER_LOADED, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS, REGISTER_SUCCESS } from "./types";
 
 export const loadUser = () => (dispatch, getState) => {
   // User Loading
@@ -60,9 +60,11 @@ export const register = ({ login, password, phonenumber, country, city, user_typ
       });
     })
     .catch(err => {
-      dispatch({
-        type: REGISTER_FAIL
-      });
+      console.log("failed to register");
+      console.log(err);
+      // dispatch({
+        // type: REGISTER_FAIL
+      // });
     });
 };
 

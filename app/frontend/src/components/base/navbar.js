@@ -11,12 +11,14 @@ class Navbar extends Component {
   };
 
 
-
   render() {
     const { isAuthenticated, user } = this.props.auth;
 
     const authLinks = (
       <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
         <li className="nav-item">
           <span className="navbar-text mr-3">
             <strong>{user ? `Welcome ${user.login}` : ""}</strong>
@@ -32,6 +34,9 @@ class Navbar extends Component {
     );
     const guestLinks = (
       <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
         <li>
           <Link to="/login">Login</Link>
         </li>

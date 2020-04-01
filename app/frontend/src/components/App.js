@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { HashRouter as Router, Route, Switch, Redurect }
 from "react-router-dom";
 import Login from "./accounts/Login"
-// import Register from "./accounts/Register"
+import Register from "./accounts/Register"
 
 import Navbar from "./base/navbar";
 import Dashboard from "./services/Dashboard";
@@ -21,7 +21,8 @@ class App extends Component {
 
             <Switch>
               <Route exact path="/" component={Dashboard} />
-              <Route exact path="/login" component={Login} />
+                <Route exact path="/login" component={Login} />
+              <Route exact path="/register" component={Register} />
             </Switch>
           </Fragment>
         </Router>
