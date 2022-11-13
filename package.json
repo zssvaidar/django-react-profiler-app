@@ -22,7 +22,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.12"
   },
   "scripts": {
     "dev": "webpack --mode development --watch ./app/frontend/src/index.js --output ./app/frontend/static/frontend/main.js",
